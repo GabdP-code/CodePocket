@@ -19,4 +19,5 @@ abstract class PocketViewHolder : PocketAdapterContract.Holder {
     override fun setView(view: View) {
         viewHolder = Holder(view)
     }
+
 }
