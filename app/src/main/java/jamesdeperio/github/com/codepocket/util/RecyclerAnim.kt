@@ -23,7 +23,7 @@ object RecyclerAnim {
         this.anim = anim
         return this
     }
-    fun commit(): RecyclerAnim {
+    fun create(): RecyclerAnim {
         val adapter: AnimationAdapter = when (anim) {
             ALPHA_IN -> AlphaInAnimationAdapter(pocketAdapter)
             SCALE_IN -> ScaleInAnimationAdapter(pocketAdapter)
