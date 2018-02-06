@@ -6,7 +6,6 @@ import okhttp3.Credentials
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
-import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory
 import java.util.concurrent.TimeUnit
 
 /**
@@ -34,7 +33,7 @@ abstract class RetrofitService(private val context:Context) : RetrofitContract {
                         .baseUrl(initBaseURL())
                         .client(okHttpClient)
                         .addConverterFactory(initConverterFactory())
-                        .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                        .addCallAdapterFactory(initRxAdapterFactory())
                         .build()
             }else {
                 val logging = HttpLoggingInterceptor()
@@ -49,7 +48,7 @@ abstract class RetrofitService(private val context:Context) : RetrofitContract {
                         .baseUrl(initBaseURL())
                         .client(okHttpClient)
                         .addConverterFactory(initConverterFactory())
-                        .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                        .addCallAdapterFactory(initRxAdapterFactory())
                         .build()
             }
         }
@@ -76,7 +75,7 @@ abstract class RetrofitService(private val context:Context) : RetrofitContract {
                         .baseUrl(initBaseURL())
                         .client(okHttpClient)
                         .addConverterFactory(initConverterFactory())
-                        .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                        .addCallAdapterFactory(initRxAdapterFactory())
                         .build()
             }else {
                 val logging = HttpLoggingInterceptor()
@@ -92,7 +91,7 @@ abstract class RetrofitService(private val context:Context) : RetrofitContract {
                         .baseUrl(initBaseURL())
                         .client(okHttpClient)
                         .addConverterFactory(initConverterFactory())
-                        .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                        .addCallAdapterFactory(initRxAdapterFactory())
                         .build()
             }
         return retrofit!!.create(service)

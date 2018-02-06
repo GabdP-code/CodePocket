@@ -1,5 +1,6 @@
 package jamesdeperio.github.com.codepocket.service
 
+import retrofit2.CallAdapter
 import retrofit2.Converter
 
 /**
@@ -16,5 +17,6 @@ internal interface RetrofitContract {
     fun create( service: Class<*>,username:String,password:String): Any
     fun create( service: Class<*>): Any
     fun initConverterFactory(): Converter.Factory
+    fun initRxAdapterFactory(): CallAdapter.Factory
 
 }
