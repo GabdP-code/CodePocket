@@ -10,7 +10,7 @@ internal interface PocketAdapterContract {
     interface Adapter {
         fun viewTypeCondition(position: Int): Int
         fun getDataCount() : Int
-        fun addViewHolder(tag: String, viewHolder: PocketViewHolder)
+        fun addViewHolder(viewHolder: PocketViewHolder)
     }
 
     interface Holder {
@@ -18,6 +18,6 @@ internal interface PocketAdapterContract {
          fun onBindEvent(view: View, position: Int)
         fun setView(view: View)
         fun onCreateView(view: View, position: Int)
-        fun getTag(): String
+
     }
 }

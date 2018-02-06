@@ -24,16 +24,16 @@ object RecyclerAnim {
         return this
     }
     fun commit(): RecyclerAnim {
-        var adapter: AnimationAdapter? = null
-        when (anim) {
-            ALPHA_IN -> adapter = AlphaInAnimationAdapter(pocketAdapter)
-            SCALE_IN -> adapter = ScaleInAnimationAdapter(pocketAdapter)
-            SLIDE_BOTTOM -> adapter = SlideInBottomAnimationAdapter(pocketAdapter)
-            SLIDE_LEFT -> adapter = SlideInLeftAnimationAdapter(pocketAdapter)
-            SLIDE_RIGHT -> adapter = SlideInRightAnimationAdapter(pocketAdapter)
+        val adapter: AnimationAdapter = when (anim) {
+            ALPHA_IN -> AlphaInAnimationAdapter(pocketAdapter)
+            SCALE_IN -> ScaleInAnimationAdapter(pocketAdapter)
+            SLIDE_BOTTOM -> SlideInBottomAnimationAdapter(pocketAdapter)
+            SLIDE_LEFT -> SlideInLeftAnimationAdapter(pocketAdapter)
+            SLIDE_RIGHT -> SlideInRightAnimationAdapter(pocketAdapter)
+            else -> SlideInLeftAnimationAdapter(pocketAdapter)
         }
         if(anim!= 5.toByte()){
-            adapter!!.setDuration(1000)
+            adapter.setDuration(1000)
             adapter.setFirstOnly(false)
             adapter.setInterpolator(OvershootInterpolator())
         }

@@ -20,18 +20,18 @@ abstract class PocketAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(), 
         return null
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        for (it in pocketViewHolderList)
-            if (holder is PocketViewHolder && holder.getTag() == it.getTag()) {
-            it.onCreateView(holder.itemView,position)
-            break
-        }
-    }
+    private var selectedLayout: Int = 0
+
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int)
+            = pocketViewHolderList[selectedLayout].onCreateView(holder.itemView,position)
     override fun getItemCount(): Int = getDataCount()
-    override fun getItemViewType(position: Int): Int = viewTypeCondition(position)
+    override fun getItemViewType(position: Int): Int {
+        selectedLayout= viewTypeCondition(position)
+        return  selectedLayout
+    }
     override fun viewTypeCondition(position: Int): Int = 0
 
-    override fun addViewHolder(tag:String,viewHolder: PocketViewHolder) {
+    override fun addViewHolder(viewHolder: PocketViewHolder) {
         pocketViewHolderList.add(viewHolder)
     }
 
