@@ -18,18 +18,18 @@ internal interface BaseContract {
     interface Activity{
         fun initSupportingActionBar(): android.support.v7.widget.Toolbar?
     }
-    interface ViewPagerControl {
-        fun setupPage()
-    }
+
     interface ViewPager {
         fun initTabLayout(): TabLayout?
         fun initViewPager(): android.support.v4.view.ViewPager
         fun initPageTransformer(): android.support.v4.view.ViewPager.PageTransformer
+        fun setupPage()
     }
     interface Drawer:NavigationView.OnNavigationItemSelectedListener {
         fun initDrawerLayout(): DrawerLayout
         fun initSupportingActionBar(): android.support.v7.widget.Toolbar
         fun initNavigationView(): NavigationView
+
     }
 
 }
