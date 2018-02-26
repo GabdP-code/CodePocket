@@ -27,8 +27,9 @@ BaseContract.Common {
         return rootView
     }
 
-    override fun setLayout(layout: Int) {
+    override fun setLayout(layout: Int): PagerFragment {
         layoutRes=layout
+        return this
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

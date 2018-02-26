@@ -22,8 +22,9 @@ abstract class SwipeBackBaseFragment : SwipeBackFragment(),
     }
 
 
-    override fun setLayout(layout: Int) {
+    override fun setLayout(layout: Int): SwipeBackBaseFragment {
         layoutRes=layout
+        return this
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

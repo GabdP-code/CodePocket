@@ -21,8 +21,9 @@ abstract class SwipeBackPagerFragment : SwipeBackFragment(),
     var rootView: View? = null
     var layoutRes : Int =0
 
-    override fun setLayout(layout: Int) {
+    override fun setLayout(layout: Int): SwipeBackPagerFragment {
         layoutRes=layout
+        return this
     }
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         rootView = inflater.inflate(layoutRes, container, false)

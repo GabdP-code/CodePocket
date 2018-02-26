@@ -22,8 +22,9 @@ abstract class BaseFragment : Fragment(),
         return rootView
     }
 
-    override fun setLayout(layout: Int) {
+    override fun setLayout(layout: Int): BaseFragment {
         layoutRes=layout
+        return this
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

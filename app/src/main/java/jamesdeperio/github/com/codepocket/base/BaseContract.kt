@@ -20,7 +20,7 @@ internal interface BaseContract {
     }
 
     interface Fragment {
-        fun setLayout(layout:Int)
+        fun setLayout(layout:Int): android.support.v4.app.Fragment
     }
 
     interface ViewPager {
