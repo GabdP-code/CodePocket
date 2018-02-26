@@ -29,4 +29,5 @@ abstract class DrawerView(private val appCompatActivity: AppCompatActivity) : Ba
         toggle.syncState()
         navigationView!!.setNavigationItemSelectedListener(appCompatActivity as NavigationView.OnNavigationItemSelectedListener)
     }
+
 }

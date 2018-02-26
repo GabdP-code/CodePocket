@@ -15,15 +15,13 @@ import android.view.ViewGroup
 abstract class PagerFragment : Fragment(),
         ViewPager.OnPageChangeListener,
         TabLayout.OnTabSelectedListener,
-        BaseContract.Common,
-        BaseContract.ViewPagerControl {
+        BaseContract.Common {
 
     var rootView: View? = null
     var layout : Int =0
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         rootView = inflater.inflate(layout, container, false)
-        setupPage()
         initialization(savedInstanceState)
         return rootView
     }
