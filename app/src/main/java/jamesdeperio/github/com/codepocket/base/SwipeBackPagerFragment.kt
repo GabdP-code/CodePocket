@@ -19,9 +19,9 @@ abstract class SwipeBackPagerFragment : SwipeBackFragment(),
         BaseContract.ViewPagerControl {
 
     var rootView: View? = null
-
+    var layout : Int =0
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-    //    rootView = inflater.inflate(initContentView(), container, false)
+        rootView = inflater.inflate(layout, container, false)
         setupPage()
         initialization(savedInstanceState)
         return attachToSwipeBack(rootView)
