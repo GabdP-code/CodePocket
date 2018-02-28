@@ -12,19 +12,11 @@ import android.view.ViewGroup
  */
 
 abstract class BaseFragment : Fragment(),
-        BaseContract.Common,
-        BaseContract.Fragment {
+        BaseContract.Common {
     var rootView: View? = null
-    var layoutRes : Int =0
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        rootView = inflater.inflate(layoutRes, container, false)
         initialization(savedInstanceState)
         return rootView
-    }
-
-    override fun setLayout(layout: Int): BaseFragment {
-        layoutRes=layout
-        return this
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

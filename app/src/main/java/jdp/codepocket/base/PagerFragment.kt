@@ -15,22 +15,16 @@ import android.view.ViewGroup
 abstract class PagerFragment : Fragment(),
         ViewPager.OnPageChangeListener,
         TabLayout.OnTabSelectedListener,
-        BaseContract.Fragment,
-BaseContract.Common {
+        BaseContract.Common {
 
     var rootView: View? = null
-    var layoutRes : Int =0
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        rootView = inflater.inflate(layoutRes, container, false)
         initialization(savedInstanceState)
         return rootView
     }
 
-    override fun setLayout(layout: Int): PagerFragment {
-        layoutRes=layout
-        return this
-    }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

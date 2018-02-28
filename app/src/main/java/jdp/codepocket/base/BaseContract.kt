@@ -19,9 +19,7 @@ internal interface BaseContract {
         fun initSupportingActionBar(): android.support.v7.widget.Toolbar?
     }
 
-    interface Fragment {
-        fun setLayout(layout:Int): android.support.v4.app.Fragment
-    }
+
 
     interface ViewPager {
         fun initTabLayout(): TabLayout?

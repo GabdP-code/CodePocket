@@ -11,21 +11,14 @@ import me.yokeyword.swipebackfragment.SwipeBackFragment as Sw
  *  jamesdeperio.github.com.codepocket.base
  */
 abstract class SwipeBackBaseFragment : Sw(),
-        BaseContract.Common,
-        BaseContract.Fragment{
+        BaseContract.Common {
     var rootView: View? = null
-    var layoutRes : Int =0
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-       rootView = inflater.inflate(layoutRes, container, false)
         initialization(savedInstanceState)
         return attachToSwipeBack(rootView)
     }
 
 
-    override fun setLayout(layout: Int): SwipeBackBaseFragment {
-        layoutRes=layout
-        return this
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

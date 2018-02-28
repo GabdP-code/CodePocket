@@ -21,7 +21,7 @@ object Navigate {
 
     private var isBackstackEnabled:Boolean = false
     private var isAnimationEnabled:Boolean = false
-    private var layoutID:Int? = null
+    private var layoutID:Int = 1
 
     fun change(layoutID: Int): Navigate {
         Navigate.layoutID =layoutID
@@ -83,17 +83,17 @@ object Navigate {
             if (isBackstackEnabled && isAnimationEnabled) {
                 fragmentManager.beginTransaction()
                         .setCustomAnimations(fromAnimEnter, fromAnimExit, toAnimEnter, toAnimExit)
-                        .add(layoutID!!, toFragment!!.get()!!, toFragment!!.javaClass.simpleName)
+                        .add(layoutID, toFragment!!.get()!!, toFragment!!.javaClass.simpleName)
                         .addToBackStack(toFragment!!.javaClass.simpleName)
                         .commitAllowingStateLoss()
             } else if (isBackstackEnabled) {
                 fragmentManager.beginTransaction()
-                        .add(layoutID!!, toFragment!!.get()!!, toFragment!!.javaClass.simpleName)
+                        .add(layoutID, toFragment!!.get()!!, toFragment!!.javaClass.simpleName)
                         .addToBackStack(toFragment!!.javaClass.simpleName)
                         .commitAllowingStateLoss()
             } else if(!isBackstackEnabled){
                 fragmentManager.beginTransaction()
-                        .replace(layoutID!!, toFragment!!.get()!!, toFragment!!.javaClass.simpleName)
+                        .replace(layoutID, toFragment!!.get()!!, toFragment!!.javaClass.simpleName)
                         .disallowAddToBackStack()
                         .commitAllowingStateLoss()
             }else throw IllegalStateException("WRONG SEQUENCE FRAGMENT!!")
@@ -101,19 +101,19 @@ object Navigate {
             if (isBackstackEnabled && isAnimationEnabled) {
                 fragmentManager.beginTransaction()
                         .setCustomAnimations(fromAnimEnter, fromAnimExit, toAnimEnter, toAnimExit)
-                        .add(layoutID!!, toFragment!!.get()!!, toFragment!!.javaClass.simpleName)
+                        .add(layoutID, toFragment!!.get()!!, toFragment!!.javaClass.simpleName)
                         .hide(fromFragment!!.get()!!)
                         .addToBackStack(toFragment!!.javaClass.simpleName)
                         .commit()
             } else if (isBackstackEnabled) {
                 fragmentManager.beginTransaction()
-                        .add(layoutID!!, toFragment!!.get()!!, toFragment!!.javaClass.simpleName)
+                        .add(layoutID, toFragment!!.get()!!, toFragment!!.javaClass.simpleName)
                         .hide(fromFragment!!.get()!!)
                         .addToBackStack(toFragment!!.javaClass.simpleName)
                         .commit()
             } else if(!isBackstackEnabled){
                 fragmentManager.beginTransaction()
-                        .replace(layoutID!!, toFragment!!.get()!!, toFragment!!.javaClass.simpleName)
+                        .replace(layoutID, toFragment!!.get()!!, toFragment!!.javaClass.simpleName)
                         .disallowAddToBackStack()
                         .commit()
             }else throw IllegalStateException("WRONG SEQUENCE FRAGMENT!!")
@@ -124,17 +124,17 @@ object Navigate {
             if (isBackstackEnabled && isAnimationEnabled) {
                 fragmentManager.beginTransaction()
                         .setCustomAnimations(fromAnimEnter, fromAnimExit, toAnimEnter, toAnimExit)
-                        .add(layoutID!!, toFragment!!.get()!!, toFragment!!.javaClass.simpleName)
+                        .add(layoutID, toFragment!!.get()!!, toFragment!!.javaClass.simpleName)
                         .addToBackStack(toFragment!!.javaClass.simpleName)
                         .commit()
             } else if (isBackstackEnabled) {
                 fragmentManager.beginTransaction()
-                        .add(layoutID!!, toFragment!!.get()!!, toFragment!!.javaClass.simpleName)
+                        .add(layoutID, toFragment!!.get()!!, toFragment!!.javaClass.simpleName)
                         .addToBackStack(toFragment!!.javaClass.simpleName)
                         .commit()
             } else if(!isBackstackEnabled){
                 fragmentManager.beginTransaction()
-                        .replace(layoutID!!, toFragment!!.get()!!, toFragment!!.javaClass.simpleName)
+                        .replace(layoutID, toFragment!!.get()!!, toFragment!!.javaClass.simpleName)
                         .disallowAddToBackStack()
                         .commit()
             }else throw IllegalStateException("WRONG SEQUENCE FRAGMENT!!")
@@ -142,19 +142,19 @@ object Navigate {
             if (isBackstackEnabled && isAnimationEnabled) {
                 fragmentManager.beginTransaction()
                         .setCustomAnimations(fromAnimEnter, fromAnimExit, toAnimEnter, toAnimExit)
-                        .add(layoutID!!, toFragment!!.get()!!, toFragment!!.javaClass.simpleName)
+                        .add(layoutID, toFragment!!.get()!!, toFragment!!.javaClass.simpleName)
                         .hide(fromFragment!!.get()!!)
                         .addToBackStack(toFragment!!.javaClass.simpleName)
                         .commit()
             } else if (isBackstackEnabled) {
                 fragmentManager.beginTransaction()
-                        .add(layoutID!!, toFragment!!.get()!!, toFragment!!.javaClass.simpleName)
+                        .add(layoutID, toFragment!!.get()!!, toFragment!!.javaClass.simpleName)
                         .hide(fromFragment!!.get()!!)
                         .addToBackStack(toFragment!!.javaClass.simpleName)
                         .commit()
             } else if(!isBackstackEnabled){
                 fragmentManager.beginTransaction()
-                        .replace(layoutID!!, toFragment!!.get()!!, toFragment!!.javaClass.simpleName)
+                        .replace(layoutID, toFragment!!.get()!!, toFragment!!.javaClass.simpleName)
                         .disallowAddToBackStack()
                         .commit()
             }else throw IllegalStateException("WRONG SEQUENCE FRAGMENT!!")
@@ -164,6 +164,6 @@ object Navigate {
         fromFragment = null
         fromActivity = null
         toFragment = null
-        layoutID = null
+        layoutID = 1
     }
 }
