@@ -21,7 +21,7 @@ object Navigate {
 
     private var isBackstackEnabled:Boolean = false
     private var isAnimationEnabled:Boolean = false
-    private var layoutID:Int = 1
+    private var layoutID:Int = 0
 
     fun change(layoutID: Int): Navigate {
         Navigate.layoutID =layoutID
