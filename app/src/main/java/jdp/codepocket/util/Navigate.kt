@@ -2,7 +2,6 @@ package jdp.codepocket.util
 
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
-import android.support.v7.app.AppCompatActivity
 import jdp.codepocket.R
 import java.lang.ref.WeakReference
 
@@ -12,7 +11,8 @@ import java.lang.ref.WeakReference
  */
 object Navigate {
     private var fromFragment:WeakReference<Fragment>? = null
-    private var fromActivity:WeakReference<AppCompatActivity>? = null
+    // private var fromActivity:WeakReference<AppCompatActivity>? = null
+    private var fragmentManager:WeakReference<FragmentManager>? = null
     private var toFragment:WeakReference<Fragment>? = null
     private var toAnimEnter:Int = R.anim.h_fragment_pop_enter
     private var toAnimExit:Int =  R.anim.h_fragment_pop_exit
@@ -23,40 +23,44 @@ object Navigate {
     private var isAnimationEnabled:Boolean = false
     private var layoutID:Int = 0
 
+    fun using (fragmentManager: FragmentManager): Navigate {
+        this.fragmentManager=WeakReference(fragmentManager)
+        return this
+    }
     fun change(layoutID: Int): Navigate {
         Navigate.layoutID =layoutID
         return this
     }
 
-    fun withBackStack(value:Boolean): Navigate {
-        isBackstackEnabled =value
+    fun withBackStack(isBackstackEnabled:Boolean): Navigate {
+        this.isBackstackEnabled =isBackstackEnabled
         isAnimationEnabled =true
         return this
     }
 
-    fun from(currentClass: Any): Navigate {
-        if(currentClass is Fragment) fromFragment = WeakReference(currentClass)
-        else if (currentClass is AppCompatActivity) fromActivity =WeakReference(currentClass)
+    fun from(currentFragment:Fragment): Navigate {
+        fromFragment = WeakReference(currentFragment)
+   //     else if (currentClass is AppCompatActivity) fromActivity =WeakReference(currentClass)
         isAnimationEnabled =false
         return this
     }
 
-    fun to(currentClass: Fragment): Navigate {
-         toFragment = WeakReference(currentClass)
+    fun to(fragmentToChange: Fragment): Navigate {
+         toFragment = WeakReference(fragmentToChange)
         isAnimationEnabled =false
         return this
     }
 
-    fun from(currentClass: Fragment, fromAnimEnter:Int,fromAnimExit: Int): Navigate {
-        fromFragment = WeakReference(currentClass)
+    fun from(currentFragment: Fragment, fromAnimEnter:Int,fromAnimExit: Int): Navigate {
+        fromFragment = WeakReference(currentFragment)
         Navigate.fromAnimEnter =fromAnimEnter
         Navigate.fromAnimExit =fromAnimExit
         isAnimationEnabled =true
         return this
     }
 
-    fun to(currentClass: Fragment, toAnimEnter: Int,toAnimExit: Int): Navigate {
-        toFragment = WeakReference(currentClass)
+    fun to(fragmentToChange: Fragment, toAnimEnter: Int,toAnimExit: Int): Navigate {
+        toFragment = WeakReference(fragmentToChange)
         Navigate.toAnimEnter =toAnimEnter
         Navigate.toAnimExit =toAnimExit
         isAnimationEnabled =true
@@ -64,15 +68,13 @@ object Navigate {
     }
 
     fun commit(): Navigate {
-        if (fromActivity !=null && toFragment !=null) changeFragment(fromActivity!!.get()!!.supportFragmentManager)
-        else if (toFragment !=null) changeFragment(fromFragment!!.get()!!.fragmentManager!!)
+        if (toFragment !=null) changeFragment(fragmentManager!!.get()!!)
         else throw IllegalStateException("WRONG SEQUENCE COMMIT!!")
         unRegister()
         return this
     }
     fun commitAllowingStateLoss(): Navigate {
-        if (fromActivity !=null && toFragment !=null) changeFragmentWithStateLoss(fromActivity!!.get()!!.supportFragmentManager)
-        else if (toFragment !=null) changeFragmentWithStateLoss(fromFragment!!.get()!!.fragmentManager!!)
+        if (toFragment !=null) changeFragmentWithStateLoss(fragmentManager!!.get()!!)
         else throw IllegalStateException("WRONG SEQUENCE COMMIT!!")
         unRegister()
         return this
@@ -162,7 +164,7 @@ object Navigate {
     }
     private fun unRegister() {
         fromFragment = null
-        fromActivity = null
+        fragmentManager = null
         toFragment = null
         layoutID = 1
     }

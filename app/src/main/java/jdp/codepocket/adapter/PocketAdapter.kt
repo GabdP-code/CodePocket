@@ -14,7 +14,7 @@ abstract class PocketAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(), 
         for (position in 0 until  pocketViewHolderList.size)
             if (viewType == position) {
                 pocketViewHolderList[position]
-                        .setView(LayoutInflater.from(parent.context).inflate(pocketViewHolderList[position].initContentView(), parent, false))
+                        .setView(LayoutInflater.from(parent.context).inflate(pocketViewHolderList[position].getContentView(), parent, false))
                 return pocketViewHolderList[position].viewHolder
             }
         return null
@@ -24,7 +24,7 @@ abstract class PocketAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(), 
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int)
             = pocketViewHolderList[selectedLayout].onCreateView(holder.itemView,position)
-    override fun getItemCount(): Int = getDataCount()
+
     override fun getItemViewType(position: Int): Int {
         selectedLayout= viewTypeCondition(position)
         return  selectedLayout

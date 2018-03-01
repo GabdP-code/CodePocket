@@ -18,5 +18,9 @@ abstract class PocketViewHolder : PocketAdapterContract.Holder {
     override fun setView(view: View) {
         viewHolder = Holder(view)
     }
-
+    private var layout :Int =0
+    override fun getContentView(): Int = layout
+    override fun setContentView(layoutID: Int) {
+        layout=layoutID
+    }
 }

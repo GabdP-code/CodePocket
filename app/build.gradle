@@ -35,7 +35,6 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.3.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:3.10.0'
     implementation 'jp.wasabeef:recyclerview-animators:2.2.6'
-    implementation 'com.eftimoff:android-viewpager-transformers:1.0.1@aar'
     compile 'me.yokeyword:swipebackfragment:0.4.0'
 }
     repositories {

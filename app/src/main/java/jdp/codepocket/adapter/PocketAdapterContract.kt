@@ -9,12 +9,12 @@ import android.view.View
 internal interface PocketAdapterContract {
     interface Adapter {
         fun viewTypeCondition(position: Int): Int
-        fun getDataCount() : Int
         fun addViewHolder(viewHolder: PocketViewHolder)
     }
 
     interface Holder {
-        fun initContentView(): Int
+        fun getContentView(): Int
+        fun setContentView(layoutID: Int)
          fun onCreateViewHolder(view: View, position: Int)
         fun setView(view: View)
         fun onCreateView(view: View, position: Int)
