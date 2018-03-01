@@ -10,7 +10,7 @@ import android.util.Log
  *  jamesdeperio.github.com.codepocket.view
  */
 
-class RecyclerStaggeredLayoutManager(spanCount: Int, orientation: Int) : StaggeredGridLayoutManager(spanCount, orientation) {
+class PocketStaggeredLayout(spanCount: Int, orientation: Int) : StaggeredGridLayoutManager(spanCount, orientation) {
 
     private var isScrollEnabled = true
 

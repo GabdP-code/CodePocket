@@ -1,7 +1,7 @@
 package jdp.codepocket.helper.layoutmanager
 
-import android.content.Context
-import android.support.v7.widget.GridLayoutManager
+import android.support.v4.app.FragmentActivity
+import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
 
@@ -9,7 +9,7 @@ import android.util.Log
  * Created by jamesdeperio on 8/26/2017
  *  jamesdeperio.github.com.codepocket.view
  */
-class RecyclerGridLayoutManager(context: Context, spanCount: Int, orientation: Int, reverseLayout: Boolean) : GridLayoutManager(context, spanCount, orientation, reverseLayout) {
+class PocketLinearLayout(activity: FragmentActivity, horizontal: Int, b: Boolean) : LinearLayoutManager(activity, horizontal, b) {
     private var isScrollEnabled = true
     fun setScrollEnabled(flag: Boolean) {
         this.isScrollEnabled = flag
@@ -18,6 +18,8 @@ class RecyclerGridLayoutManager(context: Context, spanCount: Int, orientation: I
     override fun canScrollVertically(): Boolean = isScrollEnabled && super.canScrollVertically()
 
     override fun canScrollHorizontally(): Boolean = isScrollEnabled && super.canScrollHorizontally()
+
+    override fun supportsPredictiveItemAnimations(): Boolean = false
 
     override fun onLayoutChildren(recycler: RecyclerView.Recycler?, state: RecyclerView.State) {
         try {

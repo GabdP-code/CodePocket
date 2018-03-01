@@ -2,9 +2,9 @@ package jdp.codepocket.helper.view
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.support.design.widget.TabLayout
 import android.util.AttributeSet
 import android.view.MotionEvent
-import android.widget.TableLayout
 
 
 /**
@@ -12,7 +12,7 @@ import android.widget.TableLayout
  *  jamesdeperio.github.com.codepocket.view
  */
 
-class PocketTabLayout : TableLayout {
+class PocketTabLayout : TabLayout {
     constructor(context: Context) : super(context)
 
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs)
