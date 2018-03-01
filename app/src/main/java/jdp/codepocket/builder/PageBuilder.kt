@@ -14,8 +14,8 @@ class PageBuilder(var string: String){
     class Builder {
         private lateinit var viewPager: ViewPager
         private lateinit var fragmentManager: FragmentManager
-        private lateinit var titleList : MutableList<String>
-        private lateinit var fragmentList : MutableList<Fragment>
+        private  val titleList : MutableList<String> = ArrayList()
+        private  val fragmentList : MutableList<Fragment> = ArrayList()
         private var tabLayout :TabLayout? = null
         private var pageTransformer: ViewPager.PageTransformer ? = null
         fun setViewPager(viewPager: ViewPager) {
