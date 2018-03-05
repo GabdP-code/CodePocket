@@ -9,7 +9,7 @@ import jp.wasabeef.recyclerview.adapters.*
 * Created by Jamesdeperio on 28/02/2018.
 */
 
-class DrawerBuilder(var string: String){
+class DrawerBuilder {
     class Builder {
         private lateinit var recyclerView: RecyclerView
         private lateinit  var layoutManager: RecyclerView.LayoutManager

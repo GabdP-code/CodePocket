@@ -10,7 +10,7 @@ import jdp.codepocket.base.PocketViewPagerAdapter
 * Created by Jamesdeperio on 28/02/2018.
 */
 
-class PageBuilder(var string: String){
+class PageBuilder {
     class Builder {
         private lateinit var viewPager: ViewPager
         private lateinit var fragmentManager: FragmentManager
